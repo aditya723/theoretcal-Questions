@@ -1,0 +1,26 @@
+What's the difference between “static” and “static inline” function?
+-------------------------------------------------------------------------------------------------------------------------------
+
+inline instructs the compiler to attempt to embed the function content into the calling code instead of executing an actual call.
+For small functions that are called frequently that can make a big performance difference.
+However, this is only a "hint", and the compiler may ignore it, and most compilers will try to "inline" even when the keyword
+is not used, as part of the optimizations, where its possible.
+
+for example:
+static int Inc(int i) {return i+1};
+.... // some code
+int i;
+.... // some more code
+for (i=0; i<999999; i = Inc(i)) {/*do something here*/};
+
+This tight loop will perform a function call on each iteration, and the function content is actually significantly less
+than the code the compiler needs to put to perform the call. inline will essentially instruct the compiler to convert the
+code above into an equivalent of:
+
+ int i;
+ ....
+ for (i=0; i<999999; i = i+1) { /* do something here */};
+
+Skipping the actual function call and return
+Obviously this is an example to show the point, not a real piece of code.
+static refers to the scope. In C it means that the function/variable can only be used within the same translation unit.
