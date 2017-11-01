@@ -24,3 +24,5 @@ code above into an equivalent of:
 Skipping the actual function call and return
 Obviously this is an example to show the point, not a real piece of code.
 static refers to the scope. In C it means that the function/variable can only be used within the same translation unit.
+
+
