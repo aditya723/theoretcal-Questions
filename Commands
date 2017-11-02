@@ -1,5 +1,6 @@
 kill -l --------> get all signal informatiom on linux
 
+*********************************************************************
 how to use screen:
     screen -ls to check screen
      No Sockets found in /var/run/screen/S-ntihclt.
@@ -14,3 +15,6 @@ how to use screen:
             [remote detached from 27207.aditya]
 
 Note: We can even use name also.
+***********************************************************************
+find /home/aditya -type f -ls | sort -k 7 -r -n | head -20
+*********************************************************************
