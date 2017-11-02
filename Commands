@@ -1,1 +1,16 @@
 kill -l --------> get all signal informatiom on linux
+
+how to use screen:
+    screen -ls to check screen
+     No Sockets found in /var/run/screen/S-ntihclt.
+    screen -S aditya -------- to ceate screen
+    screen -ls
+      There is a screen on:
+              27207.aditya    (Attached)
+            1 Socket in /var/run/screen/S-ntihclt.
+    screen -d 27207
+            [27207.aditya detached.]
+   screen -x 27207
+            [remote detached from 27207.aditya]
+
+Note: We can even use name also.
