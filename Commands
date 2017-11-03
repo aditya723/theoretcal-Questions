@@ -16,6 +16,7 @@ how to use screen:
 
 Note: We can even use name also.
 ***********************************************************************
+command to find top memory consuming files
 find /home/aditya -type f -ls | sort -k 7 -r -n | head -20
 *********************************************************************
 command to lsit all users
