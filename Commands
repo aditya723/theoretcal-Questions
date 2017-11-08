@@ -24,3 +24,41 @@ command to lsit all users
 ************************************************************************
 grep  -rl "aditya" ./ | xargs sed -i 's/aditya/ranu/g'
 replaces aditya with ranu
+************************************************************************
+rebassing steps:
+
+1. apply patch(it will be aborted) 
+		git am xyz.patch
+2. abort am
+	git am --abort
+3. apply using reject
+	git am xyz.patch  --reject
+4. find the rejected patch and fix the problem
+	find . -iname "*rej"
+5. add the modified files
+	git add abc.c
+6. reapply patch
+	git am --resolved
+*****************************************************************************
+cleaning untracked files in git  repo
+
+git clean -f -d
+****************************************************************************
+to merge to patch
+
+git rebase -i HEAD~2
+
+remover the redundant commit by replace pick by s
+****************************************************************************
+RECOVER DELETED LOCAL COMMIT
+
+git reflog
+
+If you have not made any extra work since you did the reset --hard you can do:
+
+git reset --hard ID
+git push -f origin master
+If you have made other work since the reset, you could cherry-pick if back onto your branch like this:
+
+git cherry-pick ID
+git push origin master
