@@ -47,4 +47,13 @@ The steps required for In-order processor are as follows:
 4. The instruction is sent to appropriate execution unit for execution.
 5. Then the results are queued.
 6. If all the older instructions have their results written back to register, then the current result is written
-   back to the register file.[1] 
+   back to the register file.[1]
+ 
+ _____________________________________________________________________________________________________________________________
+ what is difference between fork and vfok()?
+ -------------------------------------------
+ During the fork() system call the Kernel makes a copy of the parent process’s address space and attaches it to the child
+ process. But the vfork() system call do not makes any copy of the parent’s address space, so it is faster than the fork()
+ system call. The child process as a result of the vfork() system call executes exec() system call. The child process from
+ vfork() system call executes in the parent’s address space (this can overwrite the parent’s data and stack ) which suspends
+ the parent process until the child process exits.
