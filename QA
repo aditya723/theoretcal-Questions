@@ -1,5 +1,5 @@
-What's the difference between “static” and “static inline” function?
--------------------------------------------------------------------------------------------------------------------------------
+What is the difference between “static” and “static inline” function?
+--------------------------------------------------------------------
 
 inline instructs the compiler to attempt to embed the function content into the calling code instead of executing an actual call.
 For small functions that are called frequently that can make a big performance difference.
@@ -24,5 +24,27 @@ code above into an equivalent of:
 Skipping the actual function call and return
 Obviously this is an example to show the point, not a real piece of code.
 static refers to the scope. In C it means that the function/variable can only be used within the same translation unit.
+___________________________________________________________________________________________________________________________
 
+What is difference between in-order and out-of-order execution of processor?
+-----------------------------------------------------------------------------
 
+The steps required for In-order processor are as follows:
+1. The processor retrieves program instructions from its memory.
+2. If the input operands are available in the register the instruction is sent to execution unit.
+3. If the operand in unavailable during the clock cycle the processor will wait until they are available.
+   This is because the operands are fetced from the memory and are unavailable, so the processor needs to
+   wait until they are available during the current clock cycle.
+4. Then the instruction is executed by the appropriate execution unit.
+5. After the instruction is executed by the execution unit, it writes back to the register.[1]
+
+The steps required for In-order processor are as follows:
+1. The processor retrieves program instructions from its memory.
+2. Instruction are sent to an instruction queue. Instruction queue is also called instruction buffer or reservation stations
+3. Until the input operand is available the instruction waits in the queue.
+   The instruction are allowed to leave the queue for the execution.Instruction doesn't need to wait in the queue until its turn.
+   Whenever the operand is available the instruction will leave the queue or buffer for execution.
+4. The instruction is sent to appropriate execution unit for execution.
+5. Then the results are queued.
+6. If all the older instructions have their results written back to register, then the current result is written
+   back to the register file.[1] 
