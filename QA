@@ -57,3 +57,15 @@ The steps required for In-order processor are as follows:
  system call. The child process as a result of the vfork() system call executes exec() system call. The child process from
  vfork() system call executes in the parent’s address space (this can overwrite the parent’s data and stack ) which suspends
  the parent process until the child process exits.
+ 
+ 
+ ______________________________________________________________________________________________________________________________
+ why we can't use goto to jump between functions in C?
+ -----------------------------------------------------
+ Given two functions, X and Y, the compiler has no way of knowing whether a stack frame for function X might be on the
+ stack at the time Y is invoked, and thus whether a goto from function Y to function X would be possible. In languages
+ such as Pascal, where function declarations can be nested, and a goto from a nested function to a function that encloses
+ it is permitted, the static scope of a function allows the compiler to determine some information about the dynamic scope
+ of the function. Thus, if function Y is lexically nested within function X, then the compiler knows that a stack frame for
+ X must already be on the stack at the time Y is invoked, and can generate code for a goto from function Y to somewhere
+ within function X.
