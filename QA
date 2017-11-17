@@ -68,4 +68,4 @@ The steps required for In-order processor are as follows:
  it is permitted, the static scope of a function allows the compiler to determine some information about the dynamic scope
  of the function. Thus, if function Y is lexically nested within function X, then the compiler knows that a stack frame for
  X must already be on the stack at the time Y is invoked, and can generate code for a goto from function Y to somewhere
- within function X.
+ within function X.We use setjmp() and longjmp() in c for inter fuction jumps.
