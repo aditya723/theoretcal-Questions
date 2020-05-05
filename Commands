@@ -25,6 +25,9 @@ command to lsit all users
 grep  -rl "aditya" ./ | xargs sed -i 's/aditya/ranu/g'
 replaces aditya with ranu
 ************************************************************************
+List top 5 space consumer in home directory
+du -a /home | sort -n -r | head -n 5
+*************************************************************************
 rebassing steps:
 
 1. apply patch(it will be aborted) 
